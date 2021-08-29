@@ -1,0 +1,112 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Helvetica';
+}
+
+.wrapper {
+    border: 1px solid #010124;
+    width: 800px;
+    height: 600px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    /* Makes sure the game is in the center of the page at all times */
+    transform: translate(-50%, -50%);
+    background-image: url('images/background.png');
+    /* Makes sure the image does not stick from the main area, over the edge*/
+    overflow: hidden;
+}
+
+.score {
+    font-size: 150px;
+    color: #010124;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    /* Middle of wrapper */
+    transform: translate(-50%, -50%);
+    /*To make sure the score remain center with score 10 or higher*/
+    width: 200px;
+    height: 100px;
+    text-align: center;
+}
+
+.countdown {
+    position: absolute;
+    top: 490px;
+    width: 100%;
+    font-size: 20px;
+    text-align: center;
+    color: #010124;
+}
+
+button {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    /* To align horizontally */
+    transform: translate(-50%, 0);
+    background: #010124;
+    color: white;
+    padding: 20px 50px;
+    border-radius: 5px;
+    z-index: 200;
+    /* Changes mouse cursor to a hand icon  */
+    cursor: pointer;
+    border: none;
+    outline: none;
+}
+
+.game {
+    width: 600px;
+    height: 400px;
+    margin: 70px auto;
+    z-index: 200;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.hole {
+    /* grow, shrink, basis */
+    flex: 1 0 33.33%;
+    position: relative;
+    overflow: hidden;
+}
+
+.hole:after {
+    content: '';
+    display: block;
+    background-image: url("images/sand1.png");
+    position: absolute;
+    width: 100%;
+    height: 70px;
+    z-index: 2;
+    bottom: -30px;
+    background-size: contain;
+}
+.mole {
+    background-image: url(/images/yoda1.png);
+    position: absolute;
+    top: 100%;
+    width: 100%;
+    height: 100%;
+    transition: 0.4s;
+    background-repeat: no-repeat;
+    background-position: bottom;
+}
+
+.mole.small {
+    background-size: 60%;
+}
+
+.mole.large {
+    background-size: 80%;
+}
+.hole.up .mole {
+    top: 0;
+}
